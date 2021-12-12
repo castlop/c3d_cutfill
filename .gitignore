@@ -4,14 +4,5 @@
 # Dependency directories
 node_modules/
 
-# Package files
-package*.json
-
-# Webpack
-webpack.*
-
-# Babel
-.babel*
-
 # Editor
 .vscode/
