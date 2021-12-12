@@ -64,8 +64,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
       filename: './index.[contenthash].html',
-      inject: 'body', // En vez de insertarlo en el <head>
-      scriptLoading: 'defer' // Opción por defecto
+      inject: 'body',
+      scriptLoading: 'defer'
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/templates/uploader.html',
+      filename: './templates/uploader.html',
+      inject: 'body',
+      scriptLoading: 'defer'
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',

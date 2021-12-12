@@ -50,6 +50,12 @@ module.exports = {
       inject: 'body',
       scriptLoading: 'defer'
     }),
+    new HtmlWebpackPlugin({
+      template: './src/templates/uploader.html',
+      filename: './templates/uploader.html',
+      inject: 'body',
+      scriptLoading: 'defer'
+    }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       ignoreOrder: false
