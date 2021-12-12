@@ -2,7 +2,6 @@
 const HtmlWebpackPlugin         = require('html-webpack-plugin');
 const MiniCssExtractPlugin      = require('mini-css-extract-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
-const CopyPlugin                = require("copy-webpack-plugin");
 const TerserPlugin              = require("terser-webpack-plugin");
 
 module.exports = {
@@ -59,17 +58,6 @@ module.exports = {
           minimize: false
         }
       },
-      // {
-      //   test: /\.(png|jpg|jpeg|gif|svg)$/,
-      //   use: [
-      //     {
-      //       loader: 'file-loader',
-      //       options: {
-      //         esModule: false
-      //       }
-      //     }
-      //   ]
-      // },
     ]
   },
   plugins: [
@@ -83,11 +71,5 @@ module.exports = {
       filename: '[name].[contenthash].css',
       ignoreOrder: false
     }),
-    new CopyPlugin({
-        patterns: [
-          {from: 'src/assets', to: 'assets/' }
-        ],
-      }
-    ),
   ]
 }

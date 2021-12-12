@@ -7,10 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:dev": "webpack --config webpack.config.js",
     "build:prod": "webpack --config webpack.prod.js",
-    "start": "webpack serve --open Chrome --port=8090"
+    "start": "webpack serve --open-app-name chrome --port=8090"
   },
   "author": "Michael Castillo",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.13.8",
     "@babel/preset-env": "^7.13.9",
