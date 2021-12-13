@@ -1,12 +1,13 @@
 <h1>Civil 3D Cut Fill Report Generator</h1>
 <section>
-  <form>
+  <form action="#" method='post' id="form-uploader" enctype="multipart/form-data">
     <legend>Uploader</legend>
     <label for="search-file"></label>
-    <input type="file" id="search-file" multiple>
+    <input type="file" id="search-file" name="search-file" multiple required>
     <br>
     <button type="submit">Upload</button>
   </form>
 </section>
-<section id="choosen-files">
+<section id="container-files">
+  <ul id="choosen-files"></ul>
 </section>
