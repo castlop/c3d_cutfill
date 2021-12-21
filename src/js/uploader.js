@@ -1,3 +1,5 @@
+export const library = [];
+
 export const loadUploaderFeatures = (formSelector, inputName, fileListSelector) => {
   const $form = document.querySelector(formSelector),
         $input = $form[inputName];
@@ -19,8 +21,9 @@ export const loadUploaderFeatures = (formSelector, inputName, fileListSelector) 
 
     e.preventDefault();
     validFiles = files.filter(file => validateFile(file) === true);
+    
+    validFiles.map(readFile);
   });
-
 }
 
 const renderFiles = (containerSelector, files) => {
@@ -41,6 +44,12 @@ const renderFiles = (containerSelector, files) => {
   });
 }
 
+const readFile = file => {
+  let reader = new FileReader();
+  
+  reader.addEventListener('load', e => library.push(e.target.result));
+  reader.readAsText(file);
+}
 
 const validateFile = file => {
   const ALLOWED_FILES = ['text/html'];
