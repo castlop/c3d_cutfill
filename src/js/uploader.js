@@ -19,7 +19,6 @@ export const loadUploaderFeatures = (formSelector, inputName, fileListSelector) 
 
     e.preventDefault();
     validFiles = files.filter(file => validateFile(file) === true);
-    console.log(validFiles);
   });
 
 }
