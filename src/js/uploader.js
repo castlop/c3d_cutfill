@@ -12,6 +12,16 @@ export const loadUploaderFeatures = (formSelector, inputName, fileListSelector) 
       }
     }
   });
+
+  $form.addEventListener('submit', e => {
+    let files = Array.from($input.files),
+        validFiles = [];
+
+    e.preventDefault();
+    validFiles = files.filter(file => validateFile(file) === true);
+    console.log(validFiles);
+  });
+
 }
 
 const renderFiles = (containerSelector, files) => {
@@ -30,4 +40,10 @@ const renderFiles = (containerSelector, files) => {
     $fragment.appendChild($li);
     $container.appendChild($fragment);
   });
+}
+
+
+const validateFile = file => {
+  const ALLOWED_FILES = ['text/html'];
+  return ALLOWED_FILES.includes(file.type);
 }
