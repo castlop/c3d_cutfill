@@ -1,3 +1,5 @@
+import { getTablesFromText } from './utilities.js';
+
 export const library = [];
 
 export const loadUploaderFeatures = (formSelector, inputName, fileListSelector) => {
@@ -47,7 +49,10 @@ const renderFiles = (containerSelector, files) => {
 const readFile = file => {
   let reader = new FileReader();
   
-  reader.addEventListener('load', e => library.push(e.target.result));
+  reader.addEventListener('load', e => {
+    let tables = getTablesFromText(e.target.result);
+    library.push(...tables);
+  });
   reader.readAsText(file);
 }
 

@@ -10,3 +10,8 @@ const templateReader = async (templateName) => {
   let template = await fetch(TEMPLATE_FILEPATH);
   return await template.text();
 }
+
+export const getTablesFromText = (documentText) => {
+  let doc = (new DOMParser()).parseFromString(documentText, 'text/html');
+  return Array.from(doc.querySelectorAll('table'));
+}
