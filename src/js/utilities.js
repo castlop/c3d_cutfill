@@ -16,6 +16,17 @@ export const getTablesFromText = (documentText) => {
   return Array.from(doc.querySelectorAll('table'));
 }
 
+export const fromTableToObjects = (tableElement) => {
+  const $rows = Array.from(tableElement.querySelectorAll('tr'));
+  let dataTable = [],
+      rowsByGroup = {};
+  rowsByGroup = groupTableRowsByNodeType($rows);
+  if (rowsByGroup.headRows.length < 1) {
+    dataTable = rowsToArrays(rowsByGroup.dataRows);
+  }
+  return dataTable;
+}
+
 const groupTableRowsByNodeType = $tableRows => {
   const groupRows = {headRows: [], dataRows: []};
   $tableRows.forEach($tableRow => {
@@ -28,4 +39,10 @@ const groupTableRowsByNodeType = $tableRows => {
       : groupRows.dataRows.push($tableRow);
   });
   return groupRows;
+}
+
+const rowsToArrays = rows => {
+  return rows
+          .filter(row => row.cells.length > 0)
+          .map(row => Array.from(row.cells).map(cell => cell.textContent));
 }
