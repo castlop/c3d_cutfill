@@ -23,6 +23,8 @@ export const fromTableToObjects = (tableElement) => {
   rowsByGroup = groupTableRowsByNodeType($rows);
   if (rowsByGroup.headRows.length < 1) {
     dataTable = rowsToArrays(rowsByGroup.dataRows);
+  } else if (rowsByGroup.headRows.length === 1 ) {
+    dataTable = rowsToObjects(rowsByGroup);
   }
   return dataTable;
 }
@@ -45,4 +47,16 @@ const rowsToArrays = rows => {
   return rows
           .filter(row => row.cells.length > 0)
           .map(row => Array.from(row.cells).map(cell => cell.textContent));
+}
+
+const rowsToObjects = ({headRows, dataRows}) => {
+  let dataBinded = [];
+  dataRows.forEach($row => {
+    let rowBinded = {};
+    Array.from($row.cells).forEach((data, index) => {
+      rowBinded[headRows[0].cells[index].textContent] = data.textContent
+    });
+    dataBinded.push(rowBinded);
+  });
+  return dataBinded;
 }
