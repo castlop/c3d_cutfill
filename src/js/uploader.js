@@ -1,4 +1,4 @@
-import { getTablesFromText } from './utilities.js';
+import { getTablesFromText, fromTableToObjects } from './utilities.js';
 
 export const library = [];
 
@@ -51,7 +51,7 @@ const readFile = file => {
   
   reader.addEventListener('load', e => {
     let tables = getTablesFromText(e.target.result);
-    library.push(...tables);
+    library.push(tables.map(fromTableToObjects));
   });
   reader.readAsText(file);
 }
