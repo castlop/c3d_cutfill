@@ -1,6 +1,8 @@
 import { getTablesFromText, fromTableToObjects } from './utilities.js';
 
 export const library = {};
+let expectedNumberOfFiles = 0,
+    uploadedNumberOfFiles = 0;
 
 export const loadUploaderFeatures = (formSelector, inputName, fileListSelector) => {
   const $form = document.querySelector(formSelector),
@@ -23,7 +25,7 @@ export const loadUploaderFeatures = (formSelector, inputName, fileListSelector) 
 
     e.preventDefault();
     validFiles = files.filter(file => validateFile(file) === true);
-    
+    expectedNumberOfFiles = validFiles.length;
     validFiles.map(readFile);
   });
 }
@@ -52,6 +54,11 @@ const readFile = file => {
   reader.addEventListener('load', e => {
     let tables = getTablesFromText(e.target.result);
     library[file.name] = tables.map(fromTableToObjects);
+    uploadedNumberOfFiles++;
+    if (expectedNumberOfFiles === uploadedNumberOfFiles) {
+      const $downloadBtn = document.querySelector('#download-btn');
+      $downloadBtn.removeAttribute('disabled');
+    }   
   });
   reader.readAsText(file);
 }
