@@ -1,3 +1,10 @@
+export const toXLS = library => {
+  const workbook = XLSX.utils.book_new();
+  let sheetNames = Object.keys(library);
+  sheetNames.forEach(sheetName => addDataToWorkbook(library, sheetName, workbook));
+  return workbook;
+}
+
 const addDataToWorkbook = (library, sheetName, workbook) => {
   workbook.SheetNames.push(sheetName);
   library[sheetName].forEach(
