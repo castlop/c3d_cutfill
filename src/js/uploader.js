@@ -1,4 +1,6 @@
 import { getTablesFromText, fromTableToObjects } from './utilities.js';
+import { toXLS } from './xls-output.js';
+
 
 export const library = {};
 let expectedNumberOfFiles = 0,
@@ -32,6 +34,10 @@ export const loadUploaderFeatures = (
     validFiles = files.filter(file => validateFile(file) === true);
     expectedNumberOfFiles = validFiles.length;
     validFiles.map(readFile);
+  });
+
+  $downloadBtn.addEventListener('click', e => {
+    const xlsFile = toXLS(library);
   });
 }
 
