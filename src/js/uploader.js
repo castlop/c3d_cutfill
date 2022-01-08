@@ -4,9 +4,14 @@ export const library = {};
 let expectedNumberOfFiles = 0,
     uploadedNumberOfFiles = 0;
 
-export const loadUploaderFeatures = (formSelector, inputName, fileListSelector) => {
+export const loadUploaderFeatures = (
+    formSelector,
+    inputName,
+    fileListSelector,
+    downloadBtnSelector) => {
   const $form = document.querySelector(formSelector),
-        $input = $form[inputName];
+        $input = $form[inputName],
+        $downloadBtn = document.querySelector(downloadBtnSelector);
   
   $form.addEventListener('input', e => {
     let files = Array.from($input.files);
