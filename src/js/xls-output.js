@@ -1,3 +1,10 @@
+const addDataToWorkbook = (library, sheetName, workbook) => {
+  workbook.SheetNames.push(sheetName);
+  library[sheetName].forEach(
+    dataCollection => addDataToworksheet(sheetName, workbook, dataCollection)
+  );
+}
+
 const addDataToworksheet = (sheetName, workbook, dataCollection) => {
   let belowAddress = '',
       worksheet = workbook.Sheets[sheetName],
