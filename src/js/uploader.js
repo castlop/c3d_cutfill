@@ -71,7 +71,8 @@ const readFile = file => {
     if (expectedNumberOfFiles === uploadedNumberOfFiles) {
       const $downloadBtn = document.querySelector('#download-btn');
       $downloadBtn.removeAttribute('disabled');
-    }   
+      $downloadBtn.classList.remove('--disable');
+    }
   });
   reader.readAsText(file);
 }
