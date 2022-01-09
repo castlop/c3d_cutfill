@@ -22,3 +22,36 @@
   --rad-default: 8px;
   --rad-large: 15px;
 }
+
+.btn {
+  background-color: var(--clr-primary);
+  border: thin solid var(--clr-secondary);
+  border-radius: var(--rad-default);
+  color: var(--clr-default);
+  font-size: var(--fs-default);
+  padding: var(--sp-default);
+}
+
+.btn:hover {
+  background-color: var(--clr-contrast);
+  cursor: pointer;
+}
+
+.btn:active {
+  background-color: var(--clr-contrast);
+  box-shadow: 0 0  var(--sdw-default) var(--clr-default) inset;
+}
+
+.btn.--disable {
+  background-color: var(--clr-default);
+  color: var(--clr-primary);
+}
+
+.btn.--disable:hover {
+  background-color: var(--clr-default);
+  cursor: not-allowed;
+}
+
+.btn.--disable:active {
+  background-color: var(--clr-default);
+}
