@@ -37,7 +37,9 @@ export const loadUploaderFeatures = (
   });
 
   $downloadBtn.addEventListener('click', e => {
-    const xlsFile = toXLS(library);
+    const xlsFile = toXLS(library),
+          exportFilename = 'output.xlsx';
+    XLSX.writeFile(xlsFile, exportFilename);
   });
 }
 
