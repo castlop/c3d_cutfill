@@ -14,14 +14,6 @@ module.exports = {
     rules: [
       {
         test: /\.css$/,
-        exclude: /styles\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
-      },
-      {
-        test: /styles\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader'
@@ -57,7 +49,7 @@ module.exports = {
       scriptLoading: 'defer'
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].css',
+      filename: './main.css',
       ignoreOrder: false
     }),
   ]
