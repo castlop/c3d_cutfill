@@ -1,4 +1,4 @@
-import './css/buttons.css';
+import './style.css';
 
 import { templateloader } from './js/utilities';
 import { loadUploaderFeatures } from './js/uploader';
