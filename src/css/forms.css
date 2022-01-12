@@ -1,3 +1,19 @@
+.form-vertical {
+  border: thin solid var(--clr-primary);
+  border-radius: var(--rad-large);
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+  margin: auto;
+  padding: var(--sp-default);
+}
+
+.form-vertical > * {
+  margin: var(--sp-default) 0;
+}
+
 .form-title {
   border-bottom: thick solid var(--clr-primary);
   font-family: var(--font);
