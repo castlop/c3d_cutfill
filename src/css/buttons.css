@@ -1,10 +1,9 @@
-@import url('defaults.css');
-
 .btn {
   background-color: var(--clr-primary);
   border: thin solid var(--clr-secondary);
   border-radius: var(--rad-default);
   color: var(--clr-default);
+  font-family: var(--font);
   font-size: var(--fs-default);
   padding: var(--sp-default);
 }
