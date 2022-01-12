@@ -1,3 +1,9 @@
+.form-title {
+  border-bottom: thick solid var(--clr-primary);
+  font-family: var(--font);
+  font-size: var(--fs-large);
+}
+
 .file-explorer {
   display: inline-block;
   border: thin solid var(--clr-primary);
