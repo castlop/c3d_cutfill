@@ -1,3 +1,28 @@
+:root {
+  --clr-primary: #189AB4;
+  --clr-secondary: #75E6DA;
+  --clr-default: #D4F1F4;
+  --clr-contrast: #05445E;
+
+  --font: Helvetica, Arial, sans-serif;
+
+  --fs-small: 14px;
+  --fs-default: 16px;
+  --fs-large: 25px;
+  
+  --sdw-small: 1px;
+  --sdw-default: 2px;
+  --sdw-large: 3px;
+
+  --sp-small: 2px;
+  --sp-default: 5px;
+  --sp-large: 10px;
+
+  --rad-small: 3px;
+  --rad-default: 8px;
+  --rad-large: 15px;
+}
+
 ::after,
 ::before,
 * {

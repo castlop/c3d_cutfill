@@ -1,4 +1,3 @@
-import './css/defaults.css';
 import './css/styles.css';
 
 import { templateloader } from './js/utilities';
