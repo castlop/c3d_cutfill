@@ -27,3 +27,13 @@
 .file-explorer-input {
   display: none;
 }
+
+.file-explorer-label:hover {
+  box-shadow: 0 0  var(--sdw-large) var(--clr-secondary);
+  cursor: pointer;
+}
+
+.file-explorer-label:active {
+  background-color: var(--clr-secondary);
+  box-shadow: 0 0  var(--sdw-default) var(--clr-contrast) inset;
+}
